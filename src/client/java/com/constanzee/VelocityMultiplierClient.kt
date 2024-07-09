@@ -12,7 +12,7 @@ class VelocityMultiplierClient : ClientModInitializer {
 
             entity?.let {
                 val velocityMultiplierOverridable = it as VelocityMultiplierOverridable
-                velocityMultiplierOverridable.velocityMultiplierOverrideValue = payload.value
+                velocityMultiplierOverridable.velocitymultiplierOverrideValue = payload.value
             }
         }
     }

@@ -3,12 +3,11 @@ package com.constanzee
 import com.mojang.brigadier.CommandDispatcher
 import com.mojang.brigadier.context.CommandContext
 import net.minecraft.command.argument.EntityArgumentType
-import net.minecraft.command.argument.Vec3ArgumentType
 import net.minecraft.entity.Entity
+import net.minecraft.server.command.CommandManager.argument
+import net.minecraft.server.command.CommandManager.literal
+import net.minecraft.server.command.ServerCommandSource
 import net.minecraft.text.Text
-
-import net.minecraft.server.command.*
-import net.minecraft.server.command.CommandManager.*
 import net.minecraft.util.math.Vec3d
 
 object VelocityMultiplierCommand {
@@ -42,7 +41,7 @@ object VelocityMultiplierCommand {
     private fun executeDefault(
         value: Vec3d, context: CommandContext<ServerCommandSource>
     ): Int {
-        VelocityMultiplier.velocityMultiplierDefaultValue = value
+        VelocityMultiplier.velocitymultiplierDefaultValue = value
         context.source.sendFeedback({ Text.of("Set the default velocity multiplier to $value") }, false)
 
         return 1
@@ -58,7 +57,7 @@ object VelocityMultiplierCommand {
             }
 
             if (target is VelocityMultiplierOverridable) {
-                target.velocityMultiplierOverrideValue = value
+                target.velocitymultiplierOverrideValue = value
             }
         }
 

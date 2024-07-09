@@ -3,6 +3,7 @@ package com.constanzee
 import net.minecraft.util.math.Vec3d
 
 interface VelocityMultiplierOverridable {
-    var velocityMultiplierOverrideValue: Vec3d
-    fun velocityMultiplierOnDefaultMultiplierChanged(before: Vec3d, after: Vec3d)
+    var velocitymultiplierOverrideValue: Vec3d
+    var velocitymultiplierOverrideValueInverse: Vec3d
+    fun velocitymultiplierOnDefaultMultiplierChanged(before: Vec3d, after: Vec3d)
 }

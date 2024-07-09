@@ -3,7 +3,7 @@
 	"package": "com.constanzee.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-      "EntityMixin"
+      "EntityMixin", "PersistentProjectileEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

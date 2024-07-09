@@ -5,11 +5,9 @@ import com.constanzee.SetVelocityMultiplierPayload.Companion.ID
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.command.v2.ArgumentTypeRegistry
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback
-import net.fabricmc.fabric.api.event.lifecycle.v1.*
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry
 import net.minecraft.command.argument.serialize.ConstantArgumentSerializer
-import net.minecraft.registry.Registries
-import net.minecraft.registry.Registry
 import net.minecraft.server.MinecraftServer
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.Vec3d
@@ -33,7 +31,7 @@ class VelocityMultiplier : ModInitializer {
             VelocityMultiplierCommand.register(dispatcher)
         }
 
-        LOGGER.info("Velocity Multiplier is ready!")
+        LOGGER.info("Velocitymultiplier is ready!")
     }
 
     companion object {
@@ -42,13 +40,13 @@ class VelocityMultiplier : ModInitializer {
         lateinit var server: MinecraftServer
             private set
 
-        var velocityMultiplierDefaultValue = Vec3d(1.0, 1.0, 1.0)
+        var velocitymultiplierDefaultValue = Vec3d(1.0, 1.0, 1.0)
             set(value) {
                 for (world in server.worlds) {
                     for (entity in world.iterateEntities()) {
                         if (entity is VelocityMultiplierOverridable) {
-                            entity.velocityMultiplierOnDefaultMultiplierChanged(
-                                velocityMultiplierDefaultValue,
+                            entity.velocitymultiplierOnDefaultMultiplierChanged(
+                                velocitymultiplierDefaultValue,
                                 value
                             )
                         }
@@ -57,5 +55,12 @@ class VelocityMultiplier : ModInitializer {
 
                 field = value
             }
+
+        fun invertMultiplier(multiplier: Vec3d): Vec3d {
+            val x = if (multiplier.x == 0.0) 0.0 else 1 / multiplier.x
+            val y = if (multiplier.x == 0.0) 0.0 else 1 / multiplier.y
+            val z = if (multiplier.x == 0.0) 0.0 else 1 / multiplier.z
+            return Vec3d(x, y, z)
+        }
     }
 }

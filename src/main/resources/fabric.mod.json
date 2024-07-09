@@ -2,16 +2,13 @@
 	"schemaVersion": 1,
 	"id": "velocitymultiplier",
 	"version": "${version}",
-	"name": "Example mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Velocitymultiplier",
+	"description": "Multiplies velocity!",
 	"authors": [
-		"Me!"
+		"Constanzee"
 	],
-	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
-	},
-	"license": "CC0-1.0",
+	"contact": {},
+	"license": "MIT",
 	"icon": "assets/modid/icon.png",
 	"environment": "*",
 	"entrypoints": {
