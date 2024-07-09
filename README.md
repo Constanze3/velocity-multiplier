@@ -16,10 +16,10 @@ To set the default multipler.
 ```
 
 To set an "override" multiplier for certain entities.
-To reset the "override" multiplier to default simply set it to the same value as the default multiplier.
 ```
 /velocitymultiplier <targets> <multiplier>
 ```
+To reset the "override" multiplier to default simply set it to the same value as the default multiplier.
 
 The multiplier is a vector consisting of 3 double values.
 ```
