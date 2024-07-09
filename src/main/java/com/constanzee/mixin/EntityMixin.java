@@ -61,9 +61,9 @@ public abstract class EntityMixin implements VelocityMultiplierOverridable {
 
     @ModifyVariable(method = "move", at = @At("HEAD"), argsOnly = true)
     public Vec3d modifyVelocity(Vec3d original, MovementType movementType) {
-        if (movementType != MovementType.SELF) {
-            return original;
-        }
+//        if (movementType != MovementType.SELF) {
+//            return original;
+//        }
 
         return original.multiply(this.velocityMultiplierOverrideValue);
     }

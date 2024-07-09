@@ -16,21 +16,21 @@ object VelocityMultiplierCommand {
         dispatcher.register(literal("velocitymultiplier")
             .requires { source -> source.hasPermissionLevel(2) }
             .then(literal("default")
-                .then(argument("value", Vec3ArgumentType.vec3())
+                .then(argument("multiplier", Vec3dArgumentType.vec3d())
                     .executes { context ->
                         executeDefault(
-                            Vec3ArgumentType.getVec3(context, "value"),
+                            Vec3dArgumentType.getVec3d(context, "multiplier"),
                             context
                         )
                     }
                 )
             )
             .then(argument("targets", EntityArgumentType.entities())
-                .then(argument("value", Vec3ArgumentType.vec3())
+                .then(argument("multiplier", Vec3dArgumentType.vec3d())
                     .executes { context ->
                         execute(
                             EntityArgumentType.getEntities(context, "targets"),
-                            Vec3ArgumentType.getVec3(context, "value"),
+                            Vec3dArgumentType.getVec3d(context, "multiplier"),
                             context
                         )
                     }
